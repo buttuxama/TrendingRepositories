@@ -56,15 +56,55 @@
 		4960172E284BD1130045E853 /* TrendingRepositories */ = {
 			isa = PBXGroup;
 			children = (
+				49601746284BD14D0045E853 /* Utilities */,
+				49601745284BD1460045E853 /* Controller */,
+				49601744284BD13D0045E853 /* View */,
+				49601743284BD1370045E853 /* Model */,
 				4960172F284BD1130045E853 /* AppDelegate.swift */,
 				49601731284BD1130045E853 /* SceneDelegate.swift */,
-				49601733284BD1130045E853 /* ViewController.swift */,
-				49601735284BD1130045E853 /* Main.storyboard */,
 				49601738284BD1140045E853 /* Assets.xcassets */,
 				4960173A284BD1140045E853 /* LaunchScreen.storyboard */,
 				4960173D284BD1140045E853 /* Info.plist */,
 			);
 			path = TrendingRepositories;
+			sourceTree = "<group>";
+		};
+		49601743284BD1370045E853 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		49601744284BD13D0045E853 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49601747284BD17C0045E853 /* Interface Builder */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49601745284BD1460045E853 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49601733284BD1130045E853 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		49601746284BD14D0045E853 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		49601747284BD17C0045E853 /* Interface Builder */ = {
+			isa = PBXGroup;
+			children = (
+				49601735284BD1130045E853 /* Main.storyboard */,
+			);
+			path = "Interface Builder";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,7 +256,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
