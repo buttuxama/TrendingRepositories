@@ -8,3 +8,4 @@
 import Foundation
 
 let URL = "https://api.github.com/search/repositories?q=language=+sort:stars"
+let RepoCellIdentifier = "trendingRepositoriesViewCell"
