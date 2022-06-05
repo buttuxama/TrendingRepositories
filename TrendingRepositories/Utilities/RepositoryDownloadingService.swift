@@ -19,7 +19,7 @@ class RepositoryDownloadingService {
     //Since the data returned from API is JSON and it contains dictionaries of all of the repositories, this function fetches the dictionaries and appends it an array of those dictionaries.
     func downloadTrendingReposAsArrayOfDictionary(completion: @escaping (_ dictArrayRepos: [Dictionary<String, Any>], _ failure: Bool) -> ()) {
         var reposDictArray = [Dictionary<String, Any>]()
-        AF.request(URL).responseDecodable(of: JSON.self) { (response) in
+        AF.request(URL){ $0.timeoutInterval = 3 }.validate().responseDecodable(of: JSON.self) { (response) in
             switch response.result {
             case .success(let json):
                 let jsonData = JSON(json).dictionaryObject              //Fetch the dictionary from the api.
@@ -46,7 +46,7 @@ class RepositoryDownloadingService {
     }
     
     func downloadImage(for avatarUrl: String, completion: @escaping (_ image: UIImage, _ failure: Bool) -> ()) {
-        AF.request(avatarUrl).responseImage { response in           //Downloading the image from the avatar_url property.
+        AF.request(avatarUrl){ $0.timeoutInterval = 3 }.validate().responseImage { response in           //Downloading the image from the avatar_url property.
             if case .success(let image) = response.result {
                 completion(image, false)
             } else {
