@@ -20,13 +20,16 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4LX-So-Cd7">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihW-05-pMA">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihW-05-pMA" customClass="AnimationView" customModule="Lottie">
                                         <rect key="frame" x="32" y="112" width="350" height="350"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ihW-05-pMA" secondAttribute="height" multiplier="1:1" id="URg-6H-y98"/>
                                             <constraint firstAttribute="height" constant="350" id="xCp-Pu-Obw"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="animationName" value="retry"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Something went wrong.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5aJ-Dw-2m0">
                                         <rect key="frame" x="30" y="482" width="354" height="23.5"/>
@@ -68,6 +71,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="retryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOE-xb-hte"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -241,6 +247,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Trending" id="Jv2-nC-uGD"/>
                     <connections>
+                        <outlet property="animationView" destination="ihW-05-pMA" id="quw-dJ-P44"/>
+                        <outlet property="retryView" destination="4LX-So-Cd7" id="ahi-dv-DEo"/>
                         <outlet property="tableView" destination="iAe-Ju-dba" id="j4L-XJ-eN8"/>
                     </connections>
                 </viewController>

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Lottie
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var retryView: UIView!
+    @IBOutlet weak var animationView: AnimationView!
     @IBOutlet weak var tableView: UITableView!
     
     var repositoryArray: [Repository]?
@@ -27,9 +30,30 @@ class MainViewController: UIViewController {
             if !failure {
                 self.repositoryArray = repositoriesArray
                 self.tableView.reloadData()
+            } else {
+                self.retryViewLoader()
+                print(failure)
             }
         }
     }
+    
+    func retryViewLoader() {
+        self.tableView.isHidden = true
+        self.retryView.isHidden = false
+        
+        animationView.contentMode = .scaleAspectFill
+        animationView.loopMode = .loop
+        animationView.animationSpeed = 0.5
+        animationView.play()
+    }
+    
+    @IBAction func retryButtonPressed(_ sender: Any) {
+        retryView.isHidden = true
+        tableView.isHidden = false
+        fetchData()
+    }
+    
+    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
