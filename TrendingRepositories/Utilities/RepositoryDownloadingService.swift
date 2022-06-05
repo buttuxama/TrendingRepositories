@@ -85,13 +85,21 @@ class RepositoryDownloadingService {
                             guard let repo = repository else { return }
                             repositoriesArray.append(repo)
                         } else {
-                            completion(repositoriesArray, false)
+                            //The sorted array contains the sorted Repositories according to starsgazer_count and is returned such that the app displays the most trending on top. The repositories are fetched from api in unordered manner.
+                            let sortedArray = repositoriesArray.sorted { repoA, repoB in
+                                if repoA.stars > repoB.stars {
+                                    return true
+                                } else {
+                                    return false
+                                }
+                            }
+                            completion(sortedArray, false)
                         }
                     }
                 }
             } else {
                 print("The repositories could not be fetched.")
-                completion([], false)                               //The error is sent from here to controller which comes from either of the functions above.
+                completion([], true)                               //The error is sent from here to controller which comes from either of the functions above.
             }
         }
     }

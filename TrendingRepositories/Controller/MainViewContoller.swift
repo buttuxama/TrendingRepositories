@@ -24,10 +24,10 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         fetchData()
     }
-    
+    //Main function responsible for making a call to downloadService singleton to retrieve data from the API.
     func fetchData() {
         RepositoryDownloadingService.shared.fetchTrendingRepositories { repositoriesArray, failure in
-            if !failure {
+            if failure != true {
                 self.repositoryArray = repositoriesArray
                 self.tableView.reloadData()
             } else {
@@ -37,6 +37,7 @@ class MainViewController: UIViewController {
         }
     }
     
+    //Animation support function for when the API is unreachable, another view is displayed to user.
     func retryViewLoader() {
         self.tableView.isHidden = true
         self.retryView.isHidden = false
@@ -47,12 +48,12 @@ class MainViewController: UIViewController {
         animationView.play()
     }
     
+    //When retry button is pressed, this function is triggered to try calling the API again.
     @IBAction func retryButtonPressed(_ sender: Any) {
         retryView.isHidden = true
         tableView.isHidden = false
         fetchData()
     }
-    
     
 }
 
