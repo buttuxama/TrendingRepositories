@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class RepositoryTableViewCell: UITableViewCell {
 
@@ -17,9 +18,29 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var repoStarLabel: UILabel!
     @IBOutlet weak var viewToBeHidden: UIView!
     @IBOutlet weak var viewHeight: NSLayoutConstraint!
+    @IBOutlet weak var circleImageView: UIImageView!
+    @IBOutlet weak var starImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+       setupCell()
+    }
+    
+    func setupCell() {
+        //Shimmer effectr applied to repoImage, repoName and repoUsername.
+        repoImageView.showAnimatedSkeleton()
+        repoUsernameLabel.showAnimatedSkeleton()
+        repoNameLabel.showAnimatedSkeleton()
+        
+        circleImageView.image = UIImage(named: "circle")?.withRenderingMode(.alwaysTemplate)
+        starImageView.image = UIImage(named: "stars")?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    //This function is called when the cell is populated with data.
+    func hideShimmerEffect() {
+        self.repoImageView.hideSkeleton()
+        self.repoUsernameLabel.hideSkeleton()
+        self.repoNameLabel.hideSkeleton()
     }
     
     //This function configures the cell with data, called in tableView.

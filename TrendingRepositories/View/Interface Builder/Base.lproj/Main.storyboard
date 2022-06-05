@@ -103,6 +103,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="roundImage" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggH-Ql-3pE">
@@ -110,12 +111,27 @@
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repo Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI7-QA-3zY">
                                                     <rect key="frame" x="75" y="29" width="269" height="22"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="linesCornerRadius">
+                                                            <integer key="value" value="7"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MIH-gc-92R">
                                                     <rect key="frame" x="75" y="61" width="329" height="48"/>
@@ -195,12 +211,14 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="circleImageView" destination="Ncm-hV-qnU" id="aOA-bh-H93"/>
                                             <outlet property="repoDescriptionLabel" destination="anX-6e-Qq4" id="qcv-aP-vuc"/>
                                             <outlet property="repoImageView" destination="nIR-nF-qKh" id="3Bs-Dw-gJJ"/>
                                             <outlet property="repoLanguageLabel" destination="2x6-9z-84r" id="U5W-lT-W8M"/>
                                             <outlet property="repoNameLabel" destination="SI7-QA-3zY" id="YLA-LK-0rM"/>
                                             <outlet property="repoStarLabel" destination="d0p-Hj-8YK" id="7G2-6N-aZE"/>
                                             <outlet property="repoUsernameLabel" destination="ggH-Ql-3pE" id="vEl-MA-WgV"/>
+                                            <outlet property="starImageView" destination="b6U-io-2Fj" id="eGs-ER-R8d"/>
                                             <outlet property="viewHeight" destination="Kah-sM-Xfd" id="a1D-JC-ZPW"/>
                                             <outlet property="viewToBeHidden" destination="MIH-gc-92R" id="tPj-8X-815"/>
                                         </connections>

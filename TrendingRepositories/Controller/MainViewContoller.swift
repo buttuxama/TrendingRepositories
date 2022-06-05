@@ -30,10 +30,6 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
-    
-    
-    
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,6 +38,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RepoCellIdentifier, for: indexPath) as? RepositoryTableViewCell else { return UITableViewCell() }
         
         if repositoryArray != nil {
+            cell.hideShimmerEffect()            //hides the shimmer effect.
             if indexPath.row == selectedRow {
                 isRowExpanded = true
             } else {
