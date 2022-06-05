@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     var repositoryArray: [Repository]?
     var selectedRow = 0
     var isRowExpanded = false
+    var darkMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,17 @@ class MainViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.animationSpeed = 0.5
         animationView.play()
+    }
+    //The top right Navigation Bar button is used to switch between Dark and Light mode. This function defines the mechanism.
+    @IBAction func darkModeButtonPressed(_ sender: Any) {
+        let appDelegate = UIApplication.shared.windows.first
+        if darkMode == false {
+            appDelegate?.overrideUserInterfaceStyle = .dark
+            darkMode = true
+        } else {
+            appDelegate?.overrideUserInterfaceStyle = .light
+            darkMode = false
+        }
     }
     
     //When retry button is pressed, this function is triggered to try calling the API again.
